@@ -1175,14 +1175,15 @@ public class MainActivity extends SubstratumActivity implements
                     if (Systems.isSamsungDevice(context)) {
                         TextView samsungTitle = activity.mProgressDialog.findViewById(
                                 R.id.sungstratum_title);
-                        samsungTitle.setVisibility(View.VISIBLE);
+                        samsungTitle.setVisibility(View.GONE);
                         Button samsungButton = activity.mProgressDialog.findViewById(
                                 R.id.sungstratum_button);
-                        samsungButton.setVisibility(View.VISIBLE);
+                        samsungButton.setVisibility(View.GONE);
                         samsungButton.setOnClickListener(view ->
                                 launchActivityUrl(context, R.string.sungstratum_url));
                         textView.setVisibility(View.GONE);
                         titleView.setVisibility(View.GONE);
+			activity.mProgressDialog.hide();
                     } else if (Systems.isAndromedaDevice(context) &&
                             !AndromedaService.checkServerActivity()) {
                         TextView andromedaTitle = activity.mProgressDialog.findViewById(
