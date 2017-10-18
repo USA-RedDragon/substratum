@@ -111,7 +111,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 ("about_substratum");
         sb.append(BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")");
         if (BuildConfig.DEBUG) {
-            sb.append(" - " + BuildConfig.GIT_HASH);
+            sb.append(" - c7c1c198");
         }
         aboutSubstratum.setSummary(sb.toString());
         aboutSubstratum.setIcon(mContext.getDrawable(R.mipmap.main_launcher));
@@ -208,16 +208,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         if (Systems.isSamsung(mContext)) {
             aboutSamsung.setVisible(true);
-            aboutSamsung.setIcon(Packages.getAppIcon(mContext, SST_ADDON_PACKAGE));
-            try {
-                PackageInfo info = mContext.getPackageManager()
-                        .getPackageInfo(SST_ADDON_PACKAGE, 0);
-                String versionName = info.versionName;
-                int versionCode = info.versionCode;
-                aboutSamsung.setSummary(versionName + " (" + versionCode + ")");
-            } catch (Exception e) {
-                // Suppress exception
-            }
+            aboutSamsung.setIcon(R.mipmap.sungstratum_icon);
+            aboutSamsung.setSummary("two (2)");
             aboutSamsung.setOnPreferenceClickListener(preference -> {
                 try {
                     Intent intent = new Intent(Intent.ACTION_MAIN);
